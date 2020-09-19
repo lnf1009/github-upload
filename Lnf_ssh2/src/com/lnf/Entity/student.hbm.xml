@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- name是实体类名，table是数据库表名，catalog表示的是数据库 -->
+	<class name="com.lnf.Entity.student" table="table_student"
+		catalog="student">
+		<!--column代表的是数据库里面的字段名 -->
+		<id name="stuNum" column="stuNum">
+			<generator class="assigned"></generator><!-- 主键生成策略，自定义主键值 -->
+		</id>
+		<!-- 其它属性使用property标签来使用 -->
+		<property name="stuName"></property>
+		<property name="stuSex"></property>
+		<property name="stuAge"></property>
+		<property name="score"></property>
+		
+		<!-- 设置关系 -->
+		<set name="courses" table="table_score" inverse="true">
+			<key column="stuNum"></key>
+			<many-to-many class="com.lnf.Entity.Course"
+				column="cNum"></many-to-many>
+		</set>
+
+	</class>
+
+</hibernate-mapping>

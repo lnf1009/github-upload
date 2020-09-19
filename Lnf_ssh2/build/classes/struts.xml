@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 添加必要的开发常量 -->
+     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+    
+    <package name="Lnf_ssh2"  extends="struts-default" namespace="/*" >
+ 	
+    <action name="userAction_*" class="userAction" method="{1}">
+    <result name="add">/loginAction.jsp</result> 
+    <result name="success">/main.jsp</result>
+    <result name="login">/login.jsp</result>
+    <result name="checkfiled">/login.jsp</result>
+     <result name="find">/User_update.jsp</result>
+    <result name="update">/student_update_nice.jsp</result>
+    </action>
+    
+  
+ 	<action name="studentAction_*" class="studentAction" method="{1}">
+ 	<result name="findAll">/student_query.jsp</result>
+ 	<result name="findById">/student_main_queryNum.jsp</result>	
+ 	<result name="update">/student_update_nice.jsp</result>
+ 	</action>
+ 	
+ 	<action name="CourseAction_*" class="CourseAction" method="{1}">
+ 	<result name="findAll">/Course_query.jsp</result>
+ 	<result name="findById">/Course_main_queryNum.jsp</result>
+ 	<result name="update">/student_update_nice.jsp</result>
+ 	</action>
+ 	
+ 	<action name="student_addAction_*" class="student_addAction" method="{1}">
+ 	<result name="add">/student_add_nice.jsp</result>
+ 	<result name="delete">/student_delete.jsp</result>
+ 	</action>
+ 	
+ 	<action name="Course_addAction_*" class="Course_addAction" method="{1}">
+ 	<result name="add">/student_add_nice.jsp</result>
+ 	<result name="delete">/student_delete.jsp</result>
+ 	</action>
+ 	
+ 	<action name="ScoreAction_*" class="ScoreAction" method="{1}">
+ 	<result name="findAll">/Score_query.jsp</result>
+ 	<result name="update">/student_update_nice.jsp</result>
+ 	<result name="findById">/Score_main_queryNum.jsp</result>
+ 	</action>
+ 	
+ 	<action name="Score_addAction_*" class="Score_addAction" method="{1}">
+ 	<result name="add">/student_add_nice.jsp</result>
+ 	<result name="delete">/student_delete.jsp</result>
+ 	<result name="findById">/Score_main_queryNum.jsp</result>
+ 	</action>
+ 	
+ 	<action name="User_addAction_*" class="User_addAction" method="{1}">
+ 	<result name="add">/student_add_nice.jsp</result>
+ 	<result name="delete">/student_delete.jsp</result>
+ 	<result name="findById">/User_update.jsp</result>
+ 	<result name="update">/student_update_nice.jsp</result>
+ 	</action>
+ 	
+    </package>
+    
+
+</struts>

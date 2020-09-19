@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- name是实体类名，table是数据库表名，catalog表示的是数据库 -->
+	<class name="com.lnf.Entity.Course" table="table_course"
+		catalog="student">
+		<!--column代表的是数据库里面的字段名 -->
+		<id name="cNum" column="cNum">
+			<generator class="assigned"></generator>
+		</id>
+		<!-- 其它属性使用property标签来使用 -->
+		<property name="cName"></property>
+
+		<!-- 设置关系 -->
+		<set name="students" table="table_score">
+			<key column="cNum"></key>
+			<many-to-many class="com.lnf.Entity.student"
+				column="stuNum"></many-to-many>
+		</set>
+
+	</class>
+
+
+</hibernate-mapping>
